@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>Rune Labyrinth — магическа пъзел игра</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="game.js"></script>
+</head>
+<body>
+<div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+<main class="app">
+  <header class="topbar">
+    <div class="brand"><div class="logo">✦</div><div><h1>RUNE <span>LABYRINTH</span></h1><small>Магия, комбинации и тайни проходи</small></div></div>
+    <div class="top-actions"><button id="soundBtn" class="ghost" aria-label="Включи или изключи звука">♫ Звук: ВКЛ.</button><button id="helpBtn" class="ghost">? Правила</button></div>
+  </header>
+  <div class="game-layout">
+    <section class="panel side-panel" aria-label="Статистика">
+      <div class="eyebrow">ТВОЕТО ПРИКЛЮЧЕНИЕ</div>
+      <div class="level-number">НИВО <strong id="levelValue">1</strong><span>/ 100</span></div>
+      <div class="progress-track"><div id="levelProgress" class="progress-fill"></div></div>
+      <div class="stats"><div class="stat"><span>ТОЧКИ</span><strong id="scoreValue">0</strong></div><div class="stat"><span>ХОДОВЕ</span><strong id="movesValue">20</strong></div></div>
+      <div class="section-label">МИСИЯ</div><p id="missionText" class="mission">Събери магическите руни.</p>
+      <div id="goals" class="goals"></div>
+      <div class="section-label">ПОДСИЛВАНИЯ</div>
+      <div class="power-list">
+        <button id="hintBtn" class="power"><span class="power-icon">✧</span><span><b>Подсказка</b><small>Покажи валидна размяна</small></span><span class="power-count" id="hintCount">3</span></button>
+        <button id="shuffleBtn" class="power"><span class="power-icon">⤨</span><span><b>Разбъркване</b><small>Размеси свободните руни</small></span><span class="power-count" id="shuffleCount">2</span></button>
+      </div>
+      <button id="restartBtn" class="restart">↻ Опитай нивото отново</button>
+    </section>
+    <section class="board-section">
+      <div class="board-header"><div><div class="eyebrow">ДРЕВНИТЕ КАТАКОМБИ</div><h2 id="chapterTitle">Залата на искрите</h2></div><div class="chapter-pill" id="chapterPill">СВЯТ 1 / 10</div></div>
+      <div class="board-frame"><div id="board" class="board" role="grid" aria-label="Игрално поле с руни"></div><div id="toast" class="toast" aria-live="polite"></div></div>
+      <p class="board-tip" id="boardTip">Размени две съседни руни, за да подредиш поне 3 еднакви.</p>
+    </section>
+    <aside class="panel guide-panel"><div class="eyebrow">МАГИЧЕСКИ АРХИВ</div><h3>Наръчник</h3><p>Подреди 3 или повече еднакви руни по права линия. Каменните блокове оформят лабиринта.</p><div class="rune-reference" id="runeLegend"></div><div class="divider"></div><div class="tip-title">✦ КОМБО ВЕРИГИ</div><p>След изчезването на руни останалите падат надолу. Верижните комбинации носят бонус точки.</p><div class="tip-title">⬟ КРИСТАЛНА ЕНЕРГИЯ</div><p>Комбинация от 4 руни разрушава допълнителни съседни руни. Комбинация от 5 освобождава цял ред и колона.</p><div class="divider"></div><div class="lifetime">ОБЩО СПЕЧЕЛЕНИ ТОЧКИ<strong id="totalScore">0</strong></div><div class="lifetime">ЗАВЪРШЕНИ ОБИКОЛКИ<strong id="cycles">0</strong></div></aside>
+  </div>
+  <footer>Без регистрация • Без сървър • Прогресът се запазва локално</footer>
+</main>
+<div id="modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal"><div id="modalIcon" class="modal-icon">✦</div><h2 id="modalTitle">Нивото е завършено!</h2><p id="modalDescription"></p><div id="modalDetails" class="modal-details"></div><div class="modal-buttons"><button id="modalSecondary" class="ghost">Затвори</button><button id="modalPrimary" class="primary">Продължи →</button></div></div></div>
+</body>
+</html>
